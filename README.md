@@ -1,7 +1,7 @@
 # threat_species
 Aqui são apresentadas ferramentas desenvolvidas para automatizar a busca por espécies ameaçadas de extinção utilizando o R, otimizando análises de biodiversidade e conservação.
 
-* A primeira função, find_species, realiza buscas por correspondência para identificar o grau de ameaça (categoria) das espécies de um vetor em um banco de dados conhecido. Aqui disponibilizarei dois bancos: a Lista Nacional de Espécies da Flora Ameaçadas de Extinção (Portaria MMA nº 148 de 2022) e a lista mais recente do Centro Nacional de Conservação da Flora (CNCFlora).
+* A primeira função, find_species, realiza buscas por correspondência para identificar o grau de ameaça (categoria) das espécies de um vetor em um banco de dados conhecido. Aqui disponibilizarei dois bancos, ambos em .xlsx: a Lista Nacional de Espécies da Flora Ameaçadas de Extinção (Portaria MMA nº 148 de 2022) e a lista mais recente do Centro Nacional de Conservação da Flora (CNCFlora).
 
 * A segunda função, find_iucn, automatiza a consulta ao status de conservação das espécies na Lista Vermelha da IUCN, acessando diretamente o portal oficial (IUCN Red List). Para utilizá-la, é necessário obter uma chave de API, que pode ser solicitada em https://api.iucnredlist.org/.
 
