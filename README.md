@@ -21,6 +21,8 @@ A função retorna um data.frame com o nome original, o nome sugerido, a distân
 
 Exemplo de uso: 
 
+    path <- "Path/To/File" #Preencha com o caminho até o local em que a função está armazenada
+    source(file.path(path, "find_species_threatened.R"))
     ameacadas_br <- openxlsx::read.xlsx("data/portaria_148.xlsx", sheet = 1)
     ameacadas_cnc <- openxlsx::read.xlsx("data/cnc_flora_v2020.xlsx", sheet = 1, startRow = 3)
     ameacadas_rs <- openxlsx::read.xlsx("data/ameacadas_rs.xlsx", sheet = 1, startRow = 1)
@@ -48,7 +50,9 @@ Essa função é útil para integrar informações de conservação em análises
 
 Exemplo de uso: 
 
-    my_api <- "xxxxxxx"
+    path <- "Path/To/File" #Preencha com o caminho até o local em que a função está armazenada
+    source(file.path(path, "find_species_threatened.R"))
+    my_api <- "My API" #Preencha com sua API obtida cadastrando-se em: https://api.iucnredlist.org/
     my_sp <- c("Abarema cochliacarpos", "Apuleia leiocarpa")
     find_iucn(my_sp, api_key = my_api)
 
@@ -66,6 +70,8 @@ The function returns a data.frame containing the original name, the suggested na
 
 Usage: 
 
+    path <- "Path/To/File" #specify the path where the .R file is stored
+    source(file.path(path, "find_species_threatened.R"))
     ameacadas_br <- openxlsx::read.xlsx("data/portaria_148.xlsx", sheet = 1)
     ameacadas_cnc <- openxlsx::read.xlsx("data/cnc_flora_v2020.xlsx", sheet = 1, startRow = 3)
     ameacadas_rs <- openxlsx::read.xlsx("data/ameacadas_rs.xlsx", sheet = 1, startRow = 1)
@@ -92,6 +98,9 @@ This function is useful for integrating conservation information into biodiversi
 
 Usage: 
 
-    my_api <- "xxxxxxx"
+
+    path <- "Path/To/File" #specify the path where the .R file is stored
+    source(file.path(path, "find_species_threatened.R"))
+    my_api <- "My API" #Fill in with your API key obtained by registering at: https://api.iucnredlist.org/
     my_sp <- c("Abarema cochliacarpos", "Apuleia leiocarpa")
     find_iucn(my_sp, api_key = my_api)
