@@ -75,12 +75,6 @@ find_species <-function(species, species_to_match, max.distance=0.05){
 
 find_iucn <- function(x, api_key) { 
   require(taxize)
-  require(foreach)
-  require(doParallel)
-  
-  num_cores <- parallel::detectCores() - 4
-  cl <- makeCluster(num_cores)
-  registerDoParallel(cl)
   
   extract_code <- function(species) {
     if (is.list(species) && !is.null(species$red_list_category$code)) {
