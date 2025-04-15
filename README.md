@@ -23,8 +23,12 @@ Exemplo de uso:
 
     ameacadas_br <- openxlsx::read.xlsx("data/portaria_148.xlsx", sheet = 1)
     ameacadas_cnc <- openxlsx::read.xlsx("data/cnc_flora_v2020.xlsx", sheet = 1, startRow = 3)
+    ameacadas_rs <- openxlsx::read.xlsx("data/ameacadas_rs.xlsx", sheet = 1, startRow = 1)
     my_sp <- c("Abarema cochliacarpos", "Apuleia leiocarpa")
     find_species(my_sp, ameacadas_br, distance= .1)
+    find_species(my_sp, ameacadas_rs, distance= .1)
+    find_species(my_sp, ameacadas_cnc, distance= .1)
+
 
 
 ### find_iucn
@@ -64,8 +68,11 @@ Usage:
 
     ameacadas_br <- openxlsx::read.xlsx("data/portaria_148.xlsx", sheet = 1)
     ameacadas_cnc <- openxlsx::read.xlsx("data/cnc_flora_v2020.xlsx", sheet = 1, startRow = 3)
+    ameacadas_rs <- openxlsx::read.xlsx("data/ameacadas_rs.xlsx", sheet = 1, startRow = 1)
     my_sp <- c("Abarema cochliacarpos", "Apuleia leiocarpa")
     find_species(my_sp, ameacadas_br, distance= .1)
+    find_species(my_sp, ameacadas_rs, distance= .1)
+    find_species(my_sp, ameacadas_cnc, distance= .1)
     
 
 ### find_iucn
