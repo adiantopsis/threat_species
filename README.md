@@ -1,7 +1,7 @@
 # threat_species
 Aqui são apresentadas ferramentas desenvolvidas para automatizar a busca por espécies ameaçadas de extinção utilizando o R, otimizando análises de biodiversidade e conservação.
 
-* A primeira função, find_species, realiza buscas por correspondência para identificar o grau de ameaça (categoria) das espécies de um vetor em um banco de dados conhecido. Aqui disponibilizarei três bancos (veja a pasta data), ambos em .xlsx: a lista nacional de espécies da flora ameaçadas de extinção (Portaria MMA nº 148 de 2022), lista de flora ameaçada no Rio Grande do Sul (Decreto nº 52.109 de 2014) e a lista mais recente do Centro Nacional de Conservação da Flora (CNCFlora).
+* A primeira função, find_species, realiza buscas por correspondência para identificar o grau de ameaça (categoria) das espécies de um vetor em um banco de dados conhecido. Aqui disponibilizarei três bancos (veja a pasta data), ambos em .csv: a lista nacional espécies da flora ameaçadas de extinção (Portaria MMA nº 148 de 2022), lista de flora ameaçada no Rio Grande do Sul (Decreto nº 52.109 de 2014) e a lista mais recente do Centro Nacional de Conservação da Flora (CNCFlora).
 
 * A segunda função, find_iucn, automatiza a consulta ao status de conservação das espécies na Lista Vermelha da IUCN, acessando diretamente o portal oficial (IUCN Red List). Para utilizá-la, é necessário obter uma chave de API, que pode ser solicitada em https://api.iucnredlist.org/.
 
@@ -20,16 +20,33 @@ A função find_species identifica espécies ameaçadas em um banco de dados de 
 A função retorna um data.frame com o nome original, o nome sugerido, a distância de edição e a categoria de ameaça, permitindo padronizar e validar nomes taxonômicos de forma eficiente.
 
 Exemplo de uso: 
+```r
 
     path <- "Path/To/File" #Preencha com o caminho até o local em que a função está armazenada
     source(file.path(path, "find_species_threatened.R"))
-    ameacadas_br <- openxlsx::read.xlsx("data/portaria_148.xlsx", sheet = 1)
-    ameacadas_cnc <- openxlsx::read.xlsx("data/cnc_flora_v2020.xlsx", sheet = 1, startRow = 3)
-    ameacadas_rs <- openxlsx::read.xlsx("data/ameacadas_rs.xlsx", sheet = 1, startRow = 1)
+    ameacadas_br <- read.csv("data/portaria_MMA_148.csv", header = T)
+    ameacadas_cnc <- read.csv("data/cnc_flora_v2020.csv", header = T)
+    ameacadas_rs <- read.csv("data/ameacadas_rs.csv", header = T)
     my_sp <- c("Abarema cochliacarpos", "Apuleia leiocarpa")
     find_species(my_sp, ameacadas_br, distance= .1)
     find_species(my_sp, ameacadas_rs, distance= .1)
     find_species(my_sp, ameacadas_cnc, distance= .1)
+```
+### Bancos de dados
+Os bancos de dados disponibilizados aqui estão em constante atualização. Você pode usar suas versões mais recentes através do seguinte código:
+
+```r
+  ameacadas_br <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/portaria_MMA_148_22.csv", 
+                        fileEncoding = "UTF-8", sep=";", header = T)
+  ameacadas_cnc <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/cnc_flora_v2020.csv", 
+                        fileEncoding = "UTF-8", sep=";", header = T)
+  ameacadas_rs <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/ameacadas_rs.csv",
+                        fileEncoding = "UTF-8", sep=";", header = T)
+```
+Assim como você pode acessar a versão mais recente das funções através de: 
+```r
+source("https://raw.githubusercontent.com/adiantopsis/threat_species/main/find_species_threatened.R")
+```
 
 
 
@@ -50,11 +67,14 @@ Essa função é útil para integrar informações de conservação em análises
 
 Exemplo de uso: 
 
+```r
+
     path <- "Path/To/File" #Preencha com o caminho até o local em que a função está armazenada
     source(file.path(path, "find_species_threatened.R"))
     my_api <- "My API" #Preencha com sua API obtida cadastrando-se em: https://api.iucnredlist.org/
     my_sp <- c("Abarema cochliacarpos", "Apuleia leiocarpa")
     find_iucn(my_sp, api_key = my_api)
+```
 
 ## EN
 ### find_species 
@@ -69,16 +89,18 @@ The find_species function identifies threatened species in a reference database 
 The function returns a data.frame containing the original name, the suggested name, the edit distance, and the threat category, enabling efficient standardization and validation of taxonomic names.
 
 Usage: 
+```r
 
     path <- "Path/To/File" #specify the path where the .R file is stored
     source(file.path(path, "find_species_threatened.R"))
-    ameacadas_br <- openxlsx::read.xlsx("data/portaria_148.xlsx", sheet = 1)
-    ameacadas_cnc <- openxlsx::read.xlsx("data/cnc_flora_v2020.xlsx", sheet = 1, startRow = 3)
-    ameacadas_rs <- openxlsx::read.xlsx("data/ameacadas_rs.xlsx", sheet = 1, startRow = 1)
+    ameacadas_br <- read.csv("data/portaria_MMA_148.csv", header = T)
+    ameacadas_cnc <- read.csv("data/cnc_flora_v2020.csv", header = T)
+    ameacadas_rs <- read.csv("data/ameacadas_rs.csv", header = T)
     my_sp <- c("Abarema cochliacarpos", "Apuleia leiocarpa")
     find_species(my_sp, ameacadas_br, distance= .1)
     find_species(my_sp, ameacadas_rs, distance= .1)
     find_species(my_sp, ameacadas_cnc, distance= .1)
+```
     
 
 ### find_iucn
@@ -98,9 +120,28 @@ This function is useful for integrating conservation information into biodiversi
 
 Usage: 
 
+```r
 
     path <- "Path/To/File" #specify the path where the .R file is stored
     source(file.path(path, "find_species_threatened.R"))
     my_api <- "My API" #Fill in with your API key obtained by registering at: https://api.iucnredlist.org/
     my_sp <- c("Abarema cochliacarpos", "Apuleia leiocarpa")
     find_iucn(my_sp, api_key = my_api)
+```
+
+### Dataset 
+The databases provided here are continuously updated. You can use their most recent versions through the following code:
+
+```r
+  ameacadas_br <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/portaria_MMA_148_22.csv", 
+                        fileEncoding = "UTF-8", sep=";", header = T)
+  ameacadas_cnc <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/cnc_flora_v2020.csv", 
+                        fileEncoding = "UTF-8", sep=";", header = T)
+  ameacadas_rs <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/ameacadas_rs.csv",
+                        fileEncoding = "UTF-8", sep=";", header = T)
+```
+You can also access the most recent version of the functions through:
+
+```r
+source("https://raw.githubusercontent.com/adiantopsis/threat_species/main/find_species_threatened.R")
+```
