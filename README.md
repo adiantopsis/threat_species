@@ -24,9 +24,9 @@ Exemplo de uso:
 
     path <- "Path/To/File" #Preencha com o caminho até o local em que a função está armazenada
     source(file.path(path, "find_species_threatened.R"))
-    ameacadas_br <- read.csv("data/portaria_MMA_148.csv", header = T)
-    ameacadas_cnc <- read.csv("data/cnc_flora_v2020.csv", header = T)
-    ameacadas_rs <- read.csv("data/ameacadas_rs.csv", header = T)
+    ameacadas_br <- read.csv("data/portaria_MMA_148.csv", header = T, sep = ";")
+    ameacadas_cnc <- read.csv("data/cnc_flora_v2020.csv", header = T, sep = ";")
+    ameacadas_rs <- read.csv("data/ameacadas_rs.csv", header = T, sep = ";")
     my_sp <- c("Abarema cochliacarpos", "Apuleia leiocarpa")
     find_species(my_sp, ameacadas_br, distance= .1)
     find_species(my_sp, ameacadas_rs, distance= .1)
@@ -93,8 +93,8 @@ Usage:
 
     path <- "Path/To/File" #specify the path where the .R file is stored
     source(file.path(path, "find_species_threatened.R"))
-    ameacadas_br <- read.csv("data/portaria_MMA_148.csv", header = T)
-    ameacadas_cnc <- read.csv("data/cnc_flora_v2020.csv", header = T)
+    ameacadas_br <- read.csv("data/portaria_MMA_148.csv", header = T, sep=";")
+    ameacadas_cnc <- read.csv("data/cnc_flora_v2020.csv", header = T, sep = ";")
     ameacadas_rs <- read.csv("data/ameacadas_rs.csv", header = T)
     my_sp <- c("Abarema cochliacarpos", "Apuleia leiocarpa")
     find_species(my_sp, ameacadas_br, distance= .1)
@@ -134,11 +134,11 @@ The databases provided here are continuously updated. You can use their most rec
 
 ```r
   ameacadas_br <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/portaria_MMA_148_22.csv", 
-                        fileEncoding = "UTF-8", sep=";", header = T)
+                        fileEncoding = "UTF-8", sep=";", header = T, sep = ";")
   ameacadas_cnc <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/cnc_flora_v2020.csv", 
-                        fileEncoding = "UTF-8", sep=";", header = T)
+                        fileEncoding = "UTF-8", sep=";", header = T, sep = ";")
   ameacadas_rs <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/ameacadas_rs.csv",
-                        fileEncoding = "UTF-8", sep=";", header = T)
+                        fileEncoding = "UTF-8", sep=";", header = T, sep = ";")
 ```
 You can also access the most recent version of the functions through:
 
