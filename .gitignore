@@ -2,3 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
+example_workflow.R
+.Rproj
+threat_species.Rproj
