@@ -1,5 +1,5 @@
 # find_species ------------------------------------------------------------
-# Encontre espécies ameacadas de extinção em seus dados baseado em uma lista de espécies
+# Encontre espécies ameaçadas de extinção em seus dados baseado em uma lista de espécies
 #
 # A função find_species identifica espécies ameaçadas em um banco de dados de referência
 # que contém as colunas Especie (nome da espécie) e Categoria (grau de ameaça), mesmo em 
@@ -10,7 +10,7 @@
 # - species_to_match: um data.frame com as colunas Especie (nomes das espécies de referência)
 # e Categoria (grau de ameaça de cada espécie).
 # 
-# - max.distance (padrão: 0.05): distância máxima permitida para correspondências aproximadas,
+# - max_distance (padrão: 0.05): distância máxima permitida para correspondências aproximadas,
 # onde valores menores indicam maior similaridade.
 # 
 # A função retorna um data.frame com o nome original, o nome sugerido, a distância de edição e a
@@ -19,19 +19,17 @@
 # CNC Flora, mas também é possível utilizar essa função para busca em outras planilhas
 # basta ela possuir colunas configuradas de maneira identica (com Especie e Categoria)
 
-find_species <-function(species, species_to_match, max.distance=0.05){
+find_species <-function(species, species_to_match, max_distance=0.05){
   require(foreach)
   require(doParallel)
 
-  
   num_cores <- parallel::detectCores() - 4
   cl <- makeCluster(num_cores)
   registerDoParallel(cl)
-  
   sp_l <- foreach::foreach(x = 1:length(species), .combine = rbind) %dopar% 
     {
       sp_agrep <- agrep(species[x], species_to_match$Especie, 
-                        value = TRUE, max.distance = max.distance)
+                        value = TRUE, max.distance = max_distance)
       if (length(sp_agrep) > 0) {
         d <- as.numeric(adist(species[x], sp_agrep))
         categorias <- species_to_match$Categoria[match(sp_agrep, species_to_match$Especie)]
@@ -52,7 +50,7 @@ find_species <-function(species, species_to_match, max.distance=0.05){
 
 
 # find_iucn ---------------------------------------------------------------
-# Encontre as espécies ameacadas de extinção em seus dados baseado na lista do IUCN
+# Encontre as espécies ameaçadas de extinção em seus dados baseado na lista do IUCN
 # 
 # A função find_iucn busca o status de conservação de espécies na Lista Vermelha da IUCN 
 # utilizando a API do IUCN Red List. Ela realiza consultas em paralelo para otimizar a eficiência e retorna um
