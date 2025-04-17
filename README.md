@@ -24,6 +24,8 @@ Os bancos de dados e as funções disponibilizados aqui estão em constante atua
                         fileEncoding = "UTF-8", sep=";", header = T)
   ameacadas_rs <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/ameacadas_rs.csv",
                         fileEncoding = "UTF-8", sep=";", header = T)
+  plantas_raras <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/plantas_raras_br.csv",
+                        fileEncoding = "UTF-8", sep=";", header = T)
 ```
 
 ### _find_species_ 
@@ -92,6 +94,8 @@ source("https://raw.githubusercontent.com/adiantopsis/threat_species/main/find_s
                         fileEncoding = "UTF-8", sep=";", header = T, sep = ";")
   ameacadas_rs <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/ameacadas_rs.csv",
                         fileEncoding = "UTF-8", sep=";", header = T, sep = ";")
+  plantas_raras <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/plantas_raras_br.csv",
+                        fileEncoding = "UTF-8", sep=";", header = T)
 ```
 
 ### _find_species_ 
