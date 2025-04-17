@@ -7,7 +7,25 @@ Esse projeto possui diferentes bancos de dados e duas funções desenvolvidas pa
 
 Essas ferramentas permitem a integração de dados confiáveis em estudos de conservação, facilitando a análise de espécies ameaçadas de forma rápida e precisa.
 
-## PT
+## Como utilizar [pt-br]
+### Bancos de dados
+Os bancos de dados e as funções disponibilizados aqui estão em constante atualização. Você pode usar suas versões mais recentes através do seguinte código:
+
+ ```r
+#Carregar a versão mais recente das funções do projeto threat_species
+ source("https://raw.githubusercontent.com/adiantopsis/threat_species/main/find_species_threatened.R")
+ ```
+
+```r
+#Carregar a versão mais recente dos bancos de dados de flora rara e ameaçada do Brasil
+  ameacadas_br <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/portaria_MMA_148_22.csv", 
+                        fileEncoding = "UTF-8", sep=";", header = T)
+  ameacadas_cnc <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/cnc_flora_v2020.csv", 
+                        fileEncoding = "UTF-8", sep=";", header = T)
+  ameacadas_rs <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/ameacadas_rs.csv",
+                        fileEncoding = "UTF-8", sep=";", header = T)
+```
+
 ### _find_species_ 
 A função find_species identifica espécies ameaçadas em um banco de dados de referência que contém as colunas Especie (nome da espécie) e Categoria (grau de ameaça), mesmo em casos de erros de grafia ou variações nos nomes. Ela utiliza os seguintes parâmetros:
 
@@ -32,24 +50,6 @@ Exemplo de uso:
     find_species(my_sp, ameacadas_rs, distance= .1)
     find_species(my_sp, ameacadas_cnc, distance= .1)
 ```
-### Bancos de dados
-Os bancos de dados e as funções disponibilizados aqui estão em constante atualização. Você pode usar suas versões mais recentes através do seguinte código:
-
- ```r
-#Carregar a versão mais recente das funções do projeto threat_species
- source("https://raw.githubusercontent.com/adiantopsis/threat_species/main/find_species_threatened.R")
- ```
-
-```r
-#Carregar a versão mais recente dos bancos de dados de flora rara e ameaçada do Brasil
-  ameacadas_br <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/portaria_MMA_148_22.csv", 
-                        fileEncoding = "UTF-8", sep=";", header = T)
-  ameacadas_cnc <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/cnc_flora_v2020.csv", 
-                        fileEncoding = "UTF-8", sep=";", header = T)
-  ameacadas_rs <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/ameacadas_rs.csv",
-                        fileEncoding = "UTF-8", sep=";", header = T)
-```
-
 ### _find_iucn_
 A função find_iucn busca o status de conservação de espécies na Lista Vermelha da IUCN utilizando a API do IUCN Red List. Ela realiza consultas em paralelo para otimizar a eficiência e retorna um resumo do status de ameaça de cada espécie fornecida. Os parâmetros utilizados são:
 
@@ -76,7 +76,24 @@ Exemplo de uso:
     find_iucn(my_sp, api_key = my_api)
 ```
 
-## EN
+## Usage [us-en]
+### Dataset 
+The functions and databases provided here are continuously updated. You can use their most recent versions through the following code:
+
+```r
+# Load the latest version of the functions
+source("https://raw.githubusercontent.com/adiantopsis/threat_species/main/find_species_threatened.R")
+```
+```r
+#Load the latest version of the rare and threatened species from Brasil
+  ameacadas_br <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/portaria_MMA_148_22.csv", 
+                        fileEncoding = "UTF-8", sep=";", header = T, sep = ";")
+  ameacadas_cnc <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/cnc_flora_v2020.csv", 
+                        fileEncoding = "UTF-8", sep=";", header = T, sep = ";")
+  ameacadas_rs <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/ameacadas_rs.csv",
+                        fileEncoding = "UTF-8", sep=";", header = T, sep = ";")
+```
+
 ### _find_species_ 
 The find_species function identifies threatened species in a reference database containing the columns Especie (species name) and Categoria (threat level), even in cases of typos or name variations. It uses the following parameters:
 
@@ -129,19 +146,3 @@ Usage:
     find_iucn(my_sp, api_key = my_api)
 ```
 
-### Dataset 
-The functions and databases provided here are continuously updated. You can use their most recent versions through the following code:
-
-```r
-# Load the latest version of the functions
-source("https://raw.githubusercontent.com/adiantopsis/threat_species/main/find_species_threatened.R")
-```
-```r
-#Load the latest version of the rare and threatened species from Brasil
-  ameacadas_br <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/portaria_MMA_148_22.csv", 
-                        fileEncoding = "UTF-8", sep=";", header = T, sep = ";")
-  ameacadas_cnc <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/cnc_flora_v2020.csv", 
-                        fileEncoding = "UTF-8", sep=";", header = T, sep = ";")
-  ameacadas_rs <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/ameacadas_rs.csv",
-                        fileEncoding = "UTF-8", sep=";", header = T, sep = ";")
-```
