@@ -1,14 +1,14 @@
 # threat_species
 Esse repositório se trata de duas funções e diferentes bancos de dados desenvolvidas para automatizar a busca por espécies ameaçadas de extinção utilizando o R, facilitando análises de biodiversidade e conservação.
 
-* A primeira função, /find_species/, realiza buscas por correspondência para identificar o grau de ameaça (categoria) das espécies de um vetor em um banco de dados conhecido. Aqui disponibilizarei quatro bancos (veja a pasta data), ambos em .csv: a lista nacional espécies da flora ameaçadas de extinção (Portaria MMA nº 148 de 2022), lista de flora ameaçada no Rio Grande do Sul (Decreto nº 52.109 de 2014), plantas raras do Brasil (GIULIETTI et al., 2009) e a lista mais recente do Centro Nacional de Conservação da Flora (CNCFlora).
+* A primeira função, _find_species_, realiza buscas por correspondência para identificar o grau de ameaça (categoria) das espécies de um vetor em um banco de dados conhecido. Aqui disponibilizarei quatro bancos (veja a pasta data), ambos em .csv: a lista nacional espécies da flora ameaçadas de extinção (Portaria MMA nº 148 de 2022), lista de flora ameaçada no Rio Grande do Sul (Decreto nº 52.109 de 2014), plantas raras do Brasil (Giulietti et al., 2009) e a lista mais recente do Centro Nacional de Conservação da Flora (CNCFlora).
 
-* A segunda função, /find_iucn/, automatiza a consulta ao status de conservação das espécies na Lista Vermelha da IUCN, acessando diretamente o portal oficial (IUCN Red List). Para utilizá-la, é necessário obter uma chave de API, que pode ser solicitada em https://api.iucnredlist.org/.
+* A segunda função, _find_iucn_, automatiza a consulta ao status de conservação das espécies na Lista Vermelha da IUCN, acessando diretamente o portal oficial (IUCN Red List). Para utilizá-la, é necessário obter uma chave de API, que pode ser solicitada em https://api.iucnredlist.org/.
 
 Essas ferramentas permitem a integração de dados confiáveis em estudos de conservação, facilitando a análise de espécies ameaçadas de forma rápida e precisa.
 
 ## PT
-### find_species 
+### _find_species_ 
 A função find_species identifica espécies ameaçadas em um banco de dados de referência que contém as colunas Especie (nome da espécie) e Categoria (grau de ameaça), mesmo em casos de erros de grafia ou variações nos nomes. Ela utiliza os seguintes parâmetros:
 
 * species: um vetor com os nomes das espécies a serem comparados.
@@ -48,7 +48,7 @@ Assim como você pode acessar a versão mais recente das funções através de:
 source("https://raw.githubusercontent.com/adiantopsis/threat_species/main/find_species_threatened.R")
 ```
 
-### find_iucn
+### _find_iucn_
 A função find_iucn busca o status de conservação de espécies na Lista Vermelha da IUCN utilizando a API do IUCN Red List. Ela realiza consultas em paralelo para otimizar a eficiência e retorna um resumo do status de ameaça de cada espécie fornecida. Os parâmetros utilizados são:
 
 * x: um vetor contendo os nomes das espécies a serem consultadas.
@@ -75,7 +75,7 @@ Exemplo de uso:
 ```
 
 ## EN
-### find_species 
+### _find_species_ 
 The find_species function identifies threatened species in a reference database containing the columns Especie (species name) and Categoria (threat level), even in cases of typos or name variations. It uses the following parameters:
 
   *  species: a vector with the species names to be compared.
@@ -101,7 +101,7 @@ Usage:
 ```
     
 
-### find_iucn
+### _find_iucn_
 The find_iucn function retrieves the conservation status of species from the IUCN Red List using the IUCN Red List API. It performs parallel queries to optimize efficiency and returns a summary of the threat status for each species provided. The parameters used are:
 
 *    x: a vector containing the species names to be queried.
