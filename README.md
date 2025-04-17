@@ -1,5 +1,5 @@
 # threat_species
-Esse projeto possui diferentes bancos de dados e duas funções desenvolvidas para facilitar e automatiza a localização de espécies ameaçadas de extinção dentro de uma lista de espécies utilizando o R. Seu objetivo é facilitar análises de biodiversidade macroecológicas em grandes conjuntos de dados.
+Esse projeto possui diferentes bancos de dados e duas funções desenvolvidas para facilitar e automatiza a localização de espécies ameaçadas de extinção dentro de uma lista de espécies utilizando o R. Seu objetivo é facilitar análises de biodiversidade em grandes conjuntos de dados.
 
 * _find_species_: realiza buscas por correspondência para identificar o grau de ameaça (categoria) das espécies de um vetor em um banco de dados conhecido. Aqui disponibilizarei quatro bancos (veja a pasta data), ambos em .csv, eles são: a lista nacional espécies da flora ameaçadas de extinção (Portaria MMA nº 148 de 2022), lista de flora ameaçada no Rio Grande do Sul (Decreto nº 52.109 de 2014), plantas raras do Brasil (Giulietti et al., 2009) e a lista mais recente do Centro Nacional de Conservação da Flora (CNCFlora).
 
