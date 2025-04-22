@@ -1,3 +1,8 @@
+---
+title: "Treat_species"
+bibliography: /home/denilsonmachado/Documents/Referencias/library_old.bib
+---
+
 # threat_species
 Esse projeto possui diferentes bancos de dados e duas funções desenvolvidas para facilitar e automatiza a localização de espécies ameaçadas de extinção dentro de uma lista de espécies utilizando o R. Seu objetivo é facilitar análises de biodiversidade em grandes conjuntos de dados.
 
@@ -12,7 +17,8 @@ Essas ferramentas permitem a integração de dados confiáveis em estudos de con
 ## Como utilizar [pt-br]
 ### Bancos de dados
 Os bancos de dados e as funções disponibilizados aqui estão em constante atualização. Você pode usar suas versões mais recentes através do seguinte código:
- ```r
+
+```r
 #Os pacotes doParallel e foreach são dependência para executar a função, portanto, instale-os primeiro
 install.packages(c("doParallel", "foreach"))
 #Carregar a versão mais recente das funções do projeto threat_species
