@@ -1,8 +1,3 @@
----
-title: "Treat_species"
-bibliography: /home/denilsonmachado/Documents/Referencias/library_old.bib
----
-
 # threat_species
 Esse projeto possui diferentes bancos de dados e duas funções desenvolvidas para facilitar e automatiza a localização de espécies ameaçadas de extinção dentro de uma lista de espécies utilizando o R. Seu objetivo é facilitar análises de biodiversidade em grandes conjuntos de dados.
 
@@ -27,14 +22,10 @@ source("https://raw.githubusercontent.com/adiantopsis/threat_species/main/find_s
 
 ```r
 #Carregar a versão mais recente dos bancos de dados de flora rara e ameaçada do Brasil
-  ameacadas_br <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/portaria_MMA_148_22.csv", 
-                        fileEncoding = "UTF-8", sep=";", header = T)
-  ameacadas_cnc <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/cnc_flora_v2020.csv", 
-                        fileEncoding = "UTF-8", sep=";", header = T)
-  ameacadas_rs <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/ameacadas_rs.csv",
-                        fileEncoding = "UTF-8", sep=";", header = T)
-  plantas_raras <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/plantas_raras_br.csv",
-                        fileEncoding = "UTF-8", sep=";", header = T)
+  ameacadas_br <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/portaria_MMA_148_22.csv", fileEncoding = "UTF-8", sep=";", header = T)
+  ameacadas_cnc <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/cnc_flora_v2020.csv", fileEncoding = "UTF-8", sep=";", header = T)
+  ameacadas_rs <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/ameacadas_rs.csv", fileEncoding = "UTF-8", sep=";", header = T)
+  plantas_raras <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/plantas_raras_br.csv", fileEncoding = "UTF-8", sep=";", header = T)
 ```
 
 ### _find_species_ 
@@ -102,11 +93,11 @@ source("https://raw.githubusercontent.com/adiantopsis/threat_species/main/find_s
 ```r
 #Load the latest version of the rare and threatened species from Brasil
   ameacadas_br <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/portaria_MMA_148_22.csv", 
-                        fileEncoding = "UTF-8", sep=";", header = T, sep = ";")
+                        fileEncoding = "UTF-8", sep=";", header = T)
   ameacadas_cnc <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/cnc_flora_v2020.csv", 
-                        fileEncoding = "UTF-8", sep=";", header = T, sep = ";")
+                        fileEncoding = "UTF-8", sep=";", header = T)
   ameacadas_rs <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/ameacadas_rs.csv",
-                        fileEncoding = "UTF-8", sep=";", header = T, sep = ";")
+                        fileEncoding = "UTF-8", sep=";", header = T)
   plantas_raras <- read.csv("https://raw.githubusercontent.com/adiantopsis/threat_species/main/data/plantas_raras_br.csv",
                         fileEncoding = "UTF-8", sep=";", header = T)
 ```
